@@ -22,10 +22,10 @@
         MENORQ 276
         MENORIGUALQ 277
         MAIORQ 278
-        GE 279
-        AND 280
-        OR 281
-        ASSIGN 282
+        MAIORIGUALQ 279
+        E 280
+        OU 281
+        ATRIB 282
         ARRAY 283
         IF 284
         THEN 285
@@ -78,10 +78,10 @@ PONTO_FLUTUANTE [0-9]+.[0-9]+
 "<"       { return MENORQ        ; }
 "<="      { return MENORIGUALQ        ; }
 ">"       { return MAIORQ        ; }
-">="      { return GE        ; }
-"&"       { return AND       ; }
-"|"       { return OR        ; }
-":="      { return ASSIGN    ; }
+">="      { return MAIORIGUALQ        ; }
+"&"       { return E       ; }
+"|"       { return OU        ; }
+":="      { return ATRIB    ; }
 
 array     { return ARRAY     ; }
 if        { return IF        ; }
