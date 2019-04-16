@@ -3,25 +3,25 @@
 
         STRING 258
         INT 259
-        COMMA 260
-        COLON 261
+        VIRGULA 260
+        DOISPONTOS 261
         SEMICOLON 262
-        LPAREN 263
-        RPAREN 264
-        LBRACK 265
-        RBRACK 266
-        LBRACE 267
-        RBRACE 268
-        DOT 269
-        PLUS 270
-        MINUS 271
-        TIMES 272
+        ABREPAREN 263
+        FECHAPAREN 264
+        ABRECOL 265
+        FECHACOL 266
+        ABRECHAVE 267
+        ABREFECHA 268
+        PONTO 269
+        MAIS 270
+        MENOS 271
+        VEZES 272
         DIVIDE 273
-        EQ 274
-        NEQ 275
-        LT 276
-        LE 277
-        GT 278
+        IGUAL 274
+        DIFER 275
+        MENORQ 276
+        MENORIGUALQ 277
+        MAIORQ 278
         GE 279
         AND 280
         OR 281
@@ -60,24 +60,24 @@ PONTO_FLUTUANTE [0-9]+.[0-9]+
 
 <INITIAL>
 
-","       { return COMMA     ; }
-":"       { return COLON     ; }
-"("       { return LPAREN    ; }
-")"       { return RPAREN    ; }
-"["       { return LBRACK    ; }
-"]"       { return RBRACK    ; }
-"{"       { return LBRACE    ; }
-"}"       { return RBRACE    ; }
-"."       { return DOT       ; }
-"+"       { return PLUS      ; }
-"-"       { return MINUS     ; }
-"*"       { return TIMES     ; }
+","       { return VIRGULA     ; }
+":"       { return DOISPONTOS     ; }
+"("       { return ABREPAREN    ; }
+")"       { return FECHAPAREN    ; }
+"["       { return ABRECOL    ; }
+"]"       { return FECHACOL    ; }
+"{"       { return ABRECHAVE    ; }
+"}"       { return ABREFECHA    ; }
+"."       { return PONTO       ; }
+"+"       { return MAIS      ; }
+"-"       { return MENOS     ; }
+"*"       { return VEZES     ; }
 "/"       { return DIVIDE    ; }
-"="       { return EQ        ; }
-"<>"      { return NEQ       ; }
-"<"       { return LT        ; }
-"<="      { return LE        ; }
-">"       { return GT        ; }
+"="       { return IGUAL        ; }
+"<>"      { return DIFER       ; }
+"<"       { return MENORQ        ; }
+"<="      { return MENORIGUALQ        ; }
+">"       { return MAIORQ        ; }
 ">="      { return GE        ; }
 "&"       { return AND       ; }
 "|"       { return OR        ; }
@@ -131,6 +131,7 @@ for       { return FOR       ; }
 main(int argc, char **argv)
 {
   int tok;
+  yywrap();
   while(tok = yylex()) {
     printf("%d", tok);
     if(tok == ID) printf(" = %d\n", yylval);
